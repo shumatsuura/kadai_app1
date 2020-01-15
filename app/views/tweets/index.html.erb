@@ -1,26 +1,30 @@
-<header>
-みんなの匿名つぶやき掲示板
-</header>
+<head>
+  <title>つぶやく？</title>
+</head>
+<body>
 
-<h1>つぶやき一覧</h1>
+  <header>
+  みんなの匿名つぶやき掲示板
+  </header>
 
-<p><%= notice %></p>
+  <h1>つぶやき一覧</h1>
 
-<table>
-  <tr>
-    <th>つぶやき</th>
-  </tr>
+  <p><%= notice %></p>
 
-<% @tweets.each do |tweet| %>
-  <tr>
-    <td><%= tweet.content %></td>
-    <td><%= link_to "つぶやきを編集する", edit_tweet_path(tweet.id) %></td>
-    <td><%= link_to "つぶやきを削除する", tweet_path(tweet.id), method: :delete ,data: {confirm: '本当に削除していいですか？'}%></td>
-  </tr>
-<% end %>
+  <table>
+  <% @tweets.each do |tweet| %>
+    <tr>
+      <td><%= tweet.content %></td>
+      <td><%= link_to "編集", edit_tweet_path(tweet.id) %></td>
+      <td><%= link_to "削除", tweet_path(tweet.id), method: :delete ,data: {confirm: '本当に削除していいですか？'}%></td>
+    </tr>
+  <% end %>
+  </table>
 
-</table>
+  <div class="new_tweet">
+  <%= link_to '新しくつぶやく',new_tweet_path %>
+  </div>
 
-<%= link_to '新しくつぶやく', new_tweet_path %>
+  <footer>copyright (c)【2020】 【Shunsuke Matsuura】 all rights reserved.</footer>
 
-<footer>copyright (c)【2020】 【Shunsuke Matsuura】 all rights reserved.</footer>
+  </body>
