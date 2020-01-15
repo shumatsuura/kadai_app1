@@ -26,6 +26,11 @@ class TweetsController < ApplicationController
   end
 
   def update
+    if @tweet.update(tweet_params)
+      redirect_to tweets_path, notice: "つぶやきを編集しました！"
+    else
+      render :edit
+    end
   end
 
   def destroy
