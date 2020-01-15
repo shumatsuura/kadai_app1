@@ -22,6 +22,11 @@ class TweetsController < ApplicationController
     end
   end
 
+  def confirm
+    @tweet = Tweet.new(tweet_params)
+    render :new if @tweet.invalid?
+  end
+
   def edit
   end
 
